@@ -9,6 +9,7 @@ const blogBtn=document.getElementById('blog-btn')
 
 
 
+// common function
 
 function inputValue(id){
  const value=document.getElementById(id)
@@ -25,6 +26,7 @@ function textValue(id){
 let feniDonation   =textValue('f-amount')
 let quotaDonation   =textValue('q-amount')
 let noakhaliDonation=textValue('n-amount')
+
 // universal amount that will reduce
 let remainAmount=textValue('remain-amount')
 
@@ -34,16 +36,12 @@ let remainAmount=textValue('remain-amount')
 noakhaliBtn.addEventListener('click',function(){
 
     const donationAmount=inputValue('noakhali-input')
-    
-    
-    if ( typeof donationAmount !== 'number' || isNaN(donationAmount) || donationAmount <= 0) {
+     if ( typeof donationAmount !== 'number' || isNaN(donationAmount) || donationAmount <= 0 || donationAmount>remainAmount) {
         alert('Invalid Donation Amount');
-        
-        return;
+         return;
     }
-
-       
-     noakhaliDonation=donationAmount+noakhaliDonation
+   
+    noakhaliDonation=donationAmount+noakhaliDonation
     document.getElementById('n-amount').innerText=noakhaliDonation
     remainAmount=remainAmount-donationAmount
     document.getElementById('remain-amount').innerText=remainAmount
@@ -58,14 +56,13 @@ noakhaliBtn.addEventListener('click',function(){
 
 
 })
-// second card
+
+// second card*********
 feniBtn.addEventListener('click',function(){
 
     const donationAmount=inputValue('feni-input')
-    
-    if ( typeof donationAmount !== 'number' || isNaN(donationAmount) || donationAmount <= 0) {
+     if ( typeof donationAmount !== 'number' || isNaN(donationAmount) || donationAmount <= 0 || donationAmount>remainAmount) {
         alert('Invalid Donation Amount');
-        
         return;
     }
      feniDonation=donationAmount+feniDonation
@@ -100,10 +97,8 @@ feniBtn.addEventListener('click',function(){
 quotaBtn.addEventListener('click',function(){
 
     const donationAmount=inputValue('quota-input')
-    
-    if ( typeof donationAmount !== 'number' || isNaN(donationAmount) || donationAmount <= 0) {
+    if ( typeof donationAmount !== 'number' || isNaN(donationAmount) || donationAmount <= 0 || donationAmount>remainAmount) {
         alert('Invalid Donation Amount');
-        
         return;
     }
      quotaDonation=donationAmount+quotaDonation
