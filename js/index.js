@@ -14,7 +14,7 @@ const modal=document.getElementById('my_modal_1');
 
 function inputValue(id){
  const value=document.getElementById(id);
- const nValue=parseFloat(value.value);
+ const nValue=Number(value.value);
  return nValue;
 }
 function textValue(id){
@@ -37,6 +37,8 @@ let remainAmount=textValue('remain-amount');
 noakhaliBtn.addEventListener('click',function(){
 
     const donationAmount=inputValue('noakhali-input');
+      
+      
      if ( typeof donationAmount !== 'number' || isNaN(donationAmount) || donationAmount <= 0 ) {
         alert('Invalid Donation Amount');
          return;
